@@ -32,7 +32,8 @@ The RaceDay system is a comprehensive race event management platform connecting 
 
 8 interconnected tables: Users, Organisers, Participants, Categories, Events, EventCategories, Enrolments, Results.
 
-![ERD](docs/ERD.png)
+<img width="1366" height="768" alt="ERD png" src="https://github.com/user-attachments/assets/33762cd6-d908-4f75-b32c-f26df8ecbf39" />
+
 
 ## API Endpoints
 
@@ -93,6 +94,8 @@ All endpoints are documented and testable through **Swagger UI** at `/swagger/in
 - **JarredRoleAccessTests** (5) - Role enforcement on endpoints
 - **JarredEnrolmentTests** (3) - Enrolment scenarios
 - **JarredUnauthenticatedTests** (6) - Anonymous access blocked
+- <img width="1366" height="768" alt="Build-success png" src="https://github.com/user-attachments/assets/369bd9e5-3c97-4534-b403-4d1156f7c4d5" />
+
 
 Run tests with:
 ```bash
