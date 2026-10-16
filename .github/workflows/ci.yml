@@ -1,0 +1,42 @@
+name: RaceDay API CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: Build and Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run all tests
+      run: dotnet test --no-build --configuration Release --verbosity normal
+
+    - name: Verify docs folder exists
+      run: |
+        if [ -d "docs" ]; then
+          echo "docs folder exists"
+        else
+          echo "docs folder missing"
+          exit 1
+        fi
+
+    - name: Success message
+      run: echo "Build and Tests complete!"
